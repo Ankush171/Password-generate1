@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator | Codehelp</title>
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="main.css">
+    <style>
+        .tooltip.active{
+            opacity: 1;
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+    
+    <div class="w-[100vw] h-[100vh] bg-[linear-gradient(90deg,_#ee82ee_0%,_#00d1ff_100%)] flex justify-center items-center flex-col">
+
+        <div class="container flex justify-center items-center flex-col">
+
+            
+            <h1 class="text-[#50123d] text-[1.7rem] font-bold uppercase mb-2">Password Generator</h1>
+    
+            <!-- display container -->
+            <div class="display-container flex border-[2px] border-solid bg-black text-[#becf04] justify-evenly w-[22rem] h-[3.5rem] relative rounded-[1.2rem] border-black shadow-[0px_5px_0px_#2a05e3]">
+    
+                <input readonly placeholder="Password" class="display bg-black text-[1.3rem] uppercase placeholder:text-[#becf04] font-bold" data-passwordDisplay>
+                
+                <button class="copyBtn" data-copy>
+                    <span class="tooltip flex flex-col text-[#62fc7e] bg-[#d90fd9] opacity-0 top-[-10px] right-[10px] scale-0 font-bold rounded-[10px] text-center px-3 transition-all duration-250 ease-in-out absolute" class="{active} opacity-1 scale-1" data-copyMsg></span>
+                    <i class="fa-solid fa-copy text-[#08b7cf]"></i>
+                </button>
+    
+            </div>
+    
+            <!-- input container -->
+            <div class="input-container flex flex-col bg-black/95 mt-6 w-[22rem] rounded-[1.2rem]">
+                
+                <!-- password length section -->
+                <div class="length-container flex flex-row justify-between px-10 mt-3 text-[1.2rem] font-medium text-[#47defd]">
+                    <p>Password Length</p>
+                    <p data-lengthNumber class="text-[#c5cf08] font-bold">0</p>
+                </div>
+    
+                <!-- slider -->
+                <input type="range" min="1" max="20" step="1" class="slider mx-7 mt-3 accent-[#e609ed] cursor-pointer " data-lengthSlider>
+    
+                <!-- checkboxes -->
+                <div class="check text-white font-medium flex gap-x-2 ml-5 mt-3 items-center cursor-pointer">
+                    <input type="checkbox" id="uppercase" class="checked:before:content-['✔'] checked:before:absolute checked:before:text-[0.8rem] checked:before:bottom-[0.5px]
+                    checked:before:translate-x-[-20%] checked:before:translate-y-[20%] appearance-none w-[15px] h-[15px] relative border-[#26edff] border-2 rounded-[0.25rem] checked:bg-[#26edff] cursor-pointer">
+                    <label for="uppercase" class="cursor-pointer">Include Uppercase Letters</label>
+                </div>
+    
+                <div class="check check mt-1 ml-5 text-white font-medium flex gap-x-2 items-center">
+                    <input type="checkbox" id="lowercase" class="checked:before:content-['✔'] checked:before:absolute checked:before:text-[0.8rem] checked:before:bottom-[0.5px]
+                    checked:before:translate-x-[-20%] checked:before:translate-y-[20%] appearance-none w-[15px] h-[15px] relative border-[#26edff] border-2 rounded-[0.25rem] checked:bg-[#26edff] cursor-pointer">
+                    <label for="lowercase" class="cursor-pointer">Include Lowercase Letters</label>
+                </div>
+    
+                <div class="check check mt-1 ml-5 text-white font-medium flex gap-x-2 items-center">
+                    <input type="checkbox" id="numbers" class="checked:before:content-['✔'] checked:before:absolute checked:before:text-[0.8rem] checked:before:bottom-[0.5px]
+                    checked:before:translate-x-[-20%] checked:before:translate-y-[20%] appearance-none w-[15px] h-[15px] relative border-[#26edff] border-2 rounded-[0.25rem] checked:bg-[#26edff] cursor-pointer">
+                    <label for="numbers" class="cursor-pointer">Include Numbers</label>
+                </div>
+    
+                <div class="check check mt-1 ml-5 text-white font-medium flex gap-x-2 items-center">
+                    <input type="checkbox" id="symbols" class="checked:before:content-['✔'] checked:before:absolute checked:before:text-[0.8rem] checked:before:bottom-[0.5px]
+                    checked:before:translate-x-[-20%] checked:before:translate-y-[20%] appearance-none w-[15px] h-[15px] relative border-[#26edff] border-2 rounded-[0.25rem] checked:bg-[#26edff] cursor-pointer">
+                    <label for="symbols" class="cursor-pointer">Include Symbols</label>
+                </div>
+    
+                <!-- strength section -->
+                <div class="strength-container mt-4 flex flex-row justify-between px-7 text-white font-medium">
+                    <p class="text-[18px]">Strength</p>
+                    <div class="indicator w-[20px] h-[20px] rounded-full" data-indicator></div>
+                </div>
+    
+                <!-- generate password button -->
+                <div class="btn flex justify-center items-center h-[2.8rem] mt-5 mb-8 mx-8 rounded-[10px] bg-[#c114e3] text-[#fccd0f] tracking-[1px]
+                 text-[15px] font-bold shadow-[0px_5px_0px_#f0b922]">
+                    <button class="generateButton drop-shadow-[0px_0px_2px_#ba063c]">GENERATE PASSWORD</button>
+                </div>
+    
+            </div>
+    
+        </div>
+
+    </div>
+    <script src="https://kit.fontawesome.com/519b491b54.js" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>
+</html>
