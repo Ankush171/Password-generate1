@@ -100,7 +100,7 @@ async function copyContent() {
     
     setTimeout(() => {
         copyMsg.classList.remove('active');
-    }, 1000);
+    }, 1git 000);
 }
 
 function handleCheckBoxChange() {
